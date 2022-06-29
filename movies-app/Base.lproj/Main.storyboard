@@ -18,27 +18,54 @@
                         <viewLayoutGuide key="safeArea" id="61m-5T-fxN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favoritos" image="heart" catalog="system" id="AFQ-to-7Gu"/>
+                    <navigationItem key="navigationItem" title="Favoritos" id="PnV-Ix-UeP"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GPz-lE-iR1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="993" y="354"/>
+            <point key="canvasLocation" x="2813.04347826087" y="353.57142857142856"/>
         </scene>
-        <!--Películas-->
+        <!--Peliculas-->
         <scene sceneID="DGT-Re-NvV">
             <objects>
                 <viewController id="kLq-0h-Q0v" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="el6-uy-sbL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="beV-4s-pK5">
+                                <rect key="frame" x="140" y="422" width="136" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Segunda pantalla"/>
+                                <connections>
+                                    <segue destination="ODX-eQ-3NW" kind="show" id="27V-hI-Tdm"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="lPb-Ks-i9n"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Películas" image="list.bullet" catalog="system" id="O3u-bw-LB4"/>
+                    <navigationItem key="navigationItem" title="Peliculas" id="AVN-cw-iet"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dSW-cA-PJs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="992" y="-252"/>
+            <point key="canvasLocation" x="1903" y="-309"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="KO8-T5-UoJ">
+            <objects>
+                <viewController id="ODX-eQ-3NW" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WNA-RQ-IWT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="nCe-LD-ADZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Fzd-pT-bze"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aU8-dB-zbW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2681" y="-309"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="SMO-Vn-byu">
@@ -50,13 +77,51 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="kLq-0h-Q0v" kind="relationship" relationship="viewControllers" id="Jpj-04-0sK"/>
-                        <segue destination="M7Q-CH-JFE" kind="relationship" relationship="viewControllers" id="Rig-FN-pOB"/>
+                        <segue destination="JY8-sP-Ujg" kind="relationship" relationship="viewControllers" id="Jpj-04-0sK"/>
+                        <segue destination="UAl-1l-qrW" kind="relationship" relationship="viewControllers" id="Rig-FN-pOB"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lC3-dM-X2X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="104" y="52"/>
+        </scene>
+        <!--Películas-->
+        <scene sceneID="UmT-N4-Q2g">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JY8-sP-Ujg" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Películas" image="list.bullet" catalog="system" id="O3u-bw-LB4"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VkC-Ry-43g">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kLq-0h-Q0v" kind="relationship" relationship="rootViewController" id="xDn-R8-Lk7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mf3-bv-GJ8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="991.304347826087" y="-252.45535714285714"/>
+        </scene>
+        <!--Favoritos-->
+        <scene sceneID="BVU-5z-1xp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UAl-1l-qrW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favoritos" image="heart" catalog="system" id="AFQ-to-7Gu"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IKb-UQ-Ixq">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="M7Q-CH-JFE" kind="relationship" relationship="rootViewController" id="I6s-hb-MFJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RO4-Ky-MB7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1902.8985507246377" y="353.57142857142856"/>
         </scene>
     </scenes>
     <resources>

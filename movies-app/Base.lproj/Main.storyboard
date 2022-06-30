@@ -27,7 +27,7 @@
         <!--Peliculas-->
         <scene sceneID="DGT-Re-NvV">
             <objects>
-                <viewController id="kLq-0h-Q0v" sceneMemberID="viewController">
+                <viewController id="kLq-0h-Q0v" customClass="MovieViewController" customModule="movies_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="el6-uy-sbL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,6 +41,16 @@
                                     <segue destination="ODX-eQ-3NW" kind="show" id="27V-hI-Tdm"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTk-5Z-7vr">
+                                <rect key="frame" x="125" y="583" width="165" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemOrangeColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Películas Populares"/>
+                                <connections>
+                                    <action selector="onTapPopularMovie:" destination="kLq-0h-Q0v" eventType="touchUpInside" id="IrM-OD-VT3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lPb-Ks-i9n"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -49,7 +59,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dSW-cA-PJs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1903" y="-309"/>
+            <point key="canvasLocation" x="1902.8985507246377" y="-309.375"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="KO8-T5-UoJ">
@@ -129,6 +139,9 @@
         <image name="list.bullet" catalog="system" width="128" height="88"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

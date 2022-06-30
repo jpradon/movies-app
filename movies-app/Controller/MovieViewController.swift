@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MovieViewController: UIViewController {
+class MovieViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +17,7 @@ class MovieViewController: UIViewController {
     
     @IBAction func onTapPopularMovie(_ sender: Any) {
         let api: TheMovieAPIRest = TheMovieAPIRest()
+        activityIndicator.startAnimating()
         api.popularMovie(page: 1, complete: didGetPopularMovie)
     }
     
@@ -25,10 +26,11 @@ class MovieViewController: UIViewController {
         print("Callback didGetPopularMovie")
         print("code    : \(status)")
         
+        activityIndicator.stopAnimating()
         if status == .success {
-           print("ok")
+            successfulAlertMessage("Carga OK de Películas Populares")
         } else {
-            print("no-ok")
+            errorAlertMessage("No fue posible obtener las películas populares")
         }
     }
     

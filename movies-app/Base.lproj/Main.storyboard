@@ -3,8 +3,10 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -32,30 +34,100 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="beV-4s-pK5">
-                                <rect key="frame" x="140" y="422" width="136" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Segunda pantalla"/>
-                                <connections>
-                                    <segue destination="ODX-eQ-3NW" kind="show" id="27V-hI-Tdm"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTk-5Z-7vr">
-                                <rect key="frame" x="125" y="583" width="165" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" systemColor="systemOrangeColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Películas Populares"/>
-                                <connections>
-                                    <action selector="onTapPopularMovie:" destination="kLq-0h-Q0v" eventType="touchUpInside" id="IrM-OD-VT3"/>
-                                </connections>
-                            </button>
+                            <searchBar contentMode="redraw" placeholder="search" translatesAutoresizingMaskIntoConstraints="NO" id="fJJ-1a-9Wd">
+                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="VTQ-Q0-gey"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Kkl-V7-EEp">
+                                <rect key="frame" x="0.0" y="137" width="404" height="676"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="2" id="ma5-ZJ-1Sf">
+                                    <size key="itemSize" width="204" height="182"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="movieCell" id="Ns8-rG-S0E" customClass="MovieCollectionViewCell" customModule="movies_app" customModuleProvider="target">
+                                        <rect key="frame" x="100" y="0.0" width="204" height="182"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Meo-Ue-HBi">
+                                            <rect key="frame" x="0.0" y="0.0" width="204" height="182"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="peR-Ax-G3h">
+                                                    <rect key="frame" x="2" y="2" width="202" height="150"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="198" id="Veg-sK-RmJ"/>
+                                                        <constraint firstAttribute="height" constant="150" id="gAY-i4-aWA"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LaP-Uq-k5m">
+                                                    <rect key="frame" x="2" y="152" width="167" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IUj-Qo-5TK">
+                                                    <rect key="frame" x="171" y="151" width="31" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="31" id="9cK-Nr-7b8"/>
+                                                        <constraint firstAttribute="height" constant="31" id="y75-xS-Bhh"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title=" ">
+                                                        <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
+                                                    </buttonConfiguration>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="IUj-Qo-5TK" secondAttribute="bottom" id="BI3-lT-Bwm"/>
+                                                <constraint firstAttribute="bottom" secondItem="LaP-Uq-k5m" secondAttribute="bottom" id="LlD-Ej-gU3"/>
+                                                <constraint firstItem="LaP-Uq-k5m" firstAttribute="top" secondItem="peR-Ax-G3h" secondAttribute="bottom" id="MDL-Iq-Z9t"/>
+                                                <constraint firstItem="LaP-Uq-k5m" firstAttribute="leading" secondItem="Meo-Ue-HBi" secondAttribute="leading" constant="2" id="WbI-Ce-3ef"/>
+                                                <constraint firstAttribute="trailing" secondItem="IUj-Qo-5TK" secondAttribute="trailing" constant="2" id="lfT-hA-btl"/>
+                                                <constraint firstItem="peR-Ax-G3h" firstAttribute="leading" secondItem="Meo-Ue-HBi" secondAttribute="leading" constant="2" id="nDH-QN-QA5"/>
+                                                <constraint firstItem="peR-Ax-G3h" firstAttribute="top" secondItem="Meo-Ue-HBi" secondAttribute="top" constant="2" id="oQy-L1-9Bt"/>
+                                                <constraint firstAttribute="trailing" secondItem="peR-Ax-G3h" secondAttribute="trailing" id="sAM-lP-u83"/>
+                                                <constraint firstItem="IUj-Qo-5TK" firstAttribute="top" secondItem="Meo-Ue-HBi" secondAttribute="top" constant="151" id="sVk-NY-8ef"/>
+                                                <constraint firstItem="IUj-Qo-5TK" firstAttribute="leading" secondItem="LaP-Uq-k5m" secondAttribute="trailing" constant="2" id="ytE-tx-HrH"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <size key="customSize" width="204" height="182"/>
+                                        <connections>
+                                            <outlet property="favouriteButton" destination="IUj-Qo-5TK" id="06R-AA-5UD"/>
+                                            <outlet property="nameMovieLabel" destination="LaP-Uq-k5m" id="5mh-Nf-Emq"/>
+                                            <outlet property="photoMovieImageView" destination="peR-Ax-G3h" id="T61-wK-tTA"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lPb-Ks-i9n"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Kkl-V7-EEp" firstAttribute="leading" secondItem="lPb-Ks-i9n" secondAttribute="leading" id="4fI-ZJ-RLb"/>
+                            <constraint firstItem="lPb-Ks-i9n" firstAttribute="trailing" secondItem="Kkl-V7-EEp" secondAttribute="trailing" constant="10" id="9Ei-CH-tob"/>
+                            <constraint firstItem="fJJ-1a-9Wd" firstAttribute="top" secondItem="lPb-Ks-i9n" secondAttribute="top" id="Bsd-iO-est"/>
+                            <constraint firstAttribute="trailing" secondItem="fJJ-1a-9Wd" secondAttribute="trailing" id="L7h-44-xc2"/>
+                            <constraint firstItem="fJJ-1a-9Wd" firstAttribute="leading" secondItem="lPb-Ks-i9n" secondAttribute="leading" id="h2d-zL-tci"/>
+                            <constraint firstItem="lPb-Ks-i9n" firstAttribute="bottom" secondItem="Kkl-V7-EEp" secondAttribute="bottom" id="ii5-pi-IRG"/>
+                            <constraint firstItem="Kkl-V7-EEp" firstAttribute="top" secondItem="fJJ-1a-9Wd" secondAttribute="bottom" constant="5" id="nyg-re-lU8"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Peliculas" id="AVN-cw-iet"/>
+                    <connections>
+                        <outlet property="movieCollectionView" destination="Kkl-V7-EEp" id="pVx-5c-3Jl"/>
+                        <outlet property="movieSearchBar" destination="fJJ-1a-9Wd" id="ytc-hA-e7e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dSW-cA-PJs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -139,9 +211,6 @@
         <image name="list.bullet" catalog="system" width="128" height="88"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

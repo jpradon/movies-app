@@ -49,32 +49,32 @@
                                 <rect key="frame" x="0.0" y="137" width="404" height="676"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="4" id="ma5-ZJ-1Sf">
-                                    <size key="itemSize" width="202" height="292"/>
-                                    <size key="estimatedItemSize" width="202" height="292"/>
+                                    <size key="itemSize" width="200" height="301"/>
+                                    <size key="estimatedItemSize" width="200" height="300"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="movieCell" id="Ns8-rG-S0E" customClass="MovieCollectionViewCell" customModule="movies_app" customModuleProvider="target">
-                                        <rect key="frame" x="101" y="0.0" width="202" height="292"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="301"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Meo-Ue-HBi">
-                                            <rect key="frame" x="0.0" y="0.0" width="202" height="292"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="301"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="peR-Ax-G3h">
-                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="peR-Ax-G3h">
+                                                    <rect key="frame" x="2" y="0.0" width="198" height="270"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="200" id="0gu-hs-Cv2"/>
-                                                        <constraint firstAttribute="height" constant="250" id="gAY-i4-aWA"/>
+                                                        <constraint firstAttribute="width" constant="198" id="0gu-hs-Cv2"/>
+                                                        <constraint firstAttribute="height" constant="270" id="gAY-i4-aWA"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LaP-Uq-k5m">
-                                                    <rect key="frame" x="0.0" y="250" width="172" height="30"/>
+                                                    <rect key="frame" x="2" y="270" width="168" height="30"/>
                                                     <color key="backgroundColor" red="0.13333333333333333" green="0.15294117647058825" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="170" id="M8t-Xo-6Ha"/>
+                                                        <constraint firstAttribute="width" constant="168" id="M8t-Xo-6Ha"/>
                                                         <constraint firstAttribute="height" constant="30" id="S6W-OU-azB"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -82,7 +82,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IUj-Qo-5TK">
-                                                    <rect key="frame" x="172" y="250" width="30" height="30"/>
+                                                    <rect key="frame" x="170" y="270" width="30" height="30"/>
                                                     <color key="backgroundColor" red="0.13333333333333333" green="0.15294117647058825" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="9cK-Nr-7b8"/>
@@ -96,8 +96,8 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="peR-Ax-G3h" firstAttribute="leading" secondItem="Meo-Ue-HBi" secondAttribute="leading" id="8aG-yS-P1B"/>
-                                                <constraint firstItem="LaP-Uq-k5m" firstAttribute="leading" secondItem="Meo-Ue-HBi" secondAttribute="leading" id="HaI-ib-Kea"/>
+                                                <constraint firstItem="peR-Ax-G3h" firstAttribute="leading" secondItem="Meo-Ue-HBi" secondAttribute="leading" constant="2" id="8aG-yS-P1B"/>
+                                                <constraint firstItem="LaP-Uq-k5m" firstAttribute="leading" secondItem="Meo-Ue-HBi" secondAttribute="leading" constant="2" id="HaI-ib-Kea"/>
                                                 <constraint firstItem="peR-Ax-G3h" firstAttribute="top" secondItem="Meo-Ue-HBi" secondAttribute="top" id="Mbf-Cf-wRa"/>
                                                 <constraint firstItem="IUj-Qo-5TK" firstAttribute="top" secondItem="peR-Ax-G3h" secondAttribute="bottom" id="jCN-cy-a6B"/>
                                                 <constraint firstItem="LaP-Uq-k5m" firstAttribute="top" secondItem="peR-Ax-G3h" secondAttribute="bottom" id="pTS-Pp-tlF"/>
@@ -105,8 +105,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="IUj-Qo-5TK" secondAttribute="trailing" id="tlV-rj-oNa"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <color key="backgroundColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <size key="customSize" width="202" height="292"/>
+                                        <size key="customSize" width="200" height="301"/>
                                         <connections>
                                             <outlet property="favouriteButton" destination="IUj-Qo-5TK" id="06R-AA-5UD"/>
                                             <outlet property="nameMovieLabel" destination="LaP-Uq-k5m" id="5mh-Nf-Emq"/>

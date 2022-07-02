@@ -12,39 +12,70 @@ import Alamofire
 class TheMovieAPIRest {
     
     // MARK: Properties
-    let url_base: String = "https://api.themoviedb.org/3/movie"
+    let url_base: String = "https://api.themoviedb.org/3"
     let token: String = "6aedc7e1349584ac9224e8d9670af8a8"
 
-    //MARK: Method Register
+    //MARK: Method popularMovie
     func popularMovie(page: Int, complete : @escaping (_ status : APIStatusType, _ messsage: PopularMovieResponse?) -> ()) {
         
-        let context = "\(url_base)/popular?api_key=\(token)&language=en-US&page=\(page)"
+        let context = "\(url_base)/movie/popular?api_key=\(token)&language=en-US&page=\(page)"
         
         print(context)
         
         AF.request(context).response { response in
-            
-            print ("response:")
-            debugPrint(response)
+            if response.error != nil {
+                complete(.api_call_error,nil)
+                return
+            }
+            guard let data = response.data else {
+                complete(.no_data,nil)
+                return
+            }
+            do {
+                let popularMovieResponse = try JSONDecoder().decode(PopularMovieResponse.self, from: data)
+                if (popularMovieResponse.success ?? true) {
+                    print("page: \(popularMovieResponse.page)")
+                    print("total pages: \(popularMovieResponse.totalPages)")
+                    complete(.success, popularMovieResponse)
+                    return
+                } else {
+                    complete(.unsuccessfully,nil)
+                    return
+                }
+            } catch let error {
+                print(error)
+                complete(.error_processing_content, nil)
+                return
+            }
+         }
+    }
+    
+    //MARK: Method listMovie
+    func listMovie(complete : @escaping (_ status : APIStatusType, _ messsage: ListMovieResponse?) -> ()) {
+        
+        // https://api.themoviedb.org/3/genre/movie/list?api_key=6aedc7e1349584ac9224e8d9670af8a8&language=en-US
+        
+        let context = "\(url_base)/genre/movie/list?api_key=\(token)&language=en-US"
+        
+        print(context)
+        AF.request(context).response { response in
+            //print ("response:")
+            //debugPrint(response)
             
             if response.error != nil {
                 complete(.api_call_error,nil)
                 return
             }
-
             guard let data = response.data else {
                 complete(.no_data,nil)
                 return
             }
-            
             do {
-                let popularMovieResponse = try JSONDecoder().decode(PopularMovieResponse.self, from: data)
+                let listMovieResponse = try JSONDecoder().decode(ListMovieResponse.self, from: data)
                 print("*** resultado ***\n")
-                print("page: \(popularMovieResponse.page)")
-                print("total pages: \(popularMovieResponse.totalPages)")
                 
-                if (popularMovieResponse.success ?? true) {
-                    complete(.success, popularMovieResponse)
+                if (listMovieResponse.success ?? true) {
+                    complete(.success, listMovieResponse)
                     return
                 } else {
                     complete(.unsuccessfully,nil)
@@ -58,5 +89,4 @@ class TheMovieAPIRest {
             }
          }
     }
-
 }

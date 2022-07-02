@@ -11,11 +11,11 @@ class MovieViewController: BaseViewController, UICollectionViewDelegate, UIColle
                            UIScrollViewDelegate  {
     
     @IBOutlet weak var movieSearchBar: UISearchBar!
-    
-    
     @IBOutlet weak var movieCollectionView: UICollectionView!
     
+    // MARK: Properties
     var movieList: [Movie] = []
+    var genresList: [Genres] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +27,7 @@ class MovieViewController: BaseViewController, UICollectionViewDelegate, UIColle
     func setup() {
         let api: TheMovieAPIRest = TheMovieAPIRest()
         activityIndicator.startAnimating()
+        api.listMovie(complete: didGetGenresMovie)
         api.popularMovie(page: 1, complete: didGetPopularMovie)
         movieCollectionView.delegate = self
         movieCollectionView.dataSource = self
@@ -45,9 +46,26 @@ class MovieViewController: BaseViewController, UICollectionViewDelegate, UIColle
                 movieList.append(Movie(name: movieData.title, image: "https://image.tmdb.org/t/p/w500/\(movieData.posterPath)" , favorite: false))
             }
             movieCollectionView.reloadData()
-            print(response?.results.count)
+            print("Cantidad de películas: \(movieList.count)")
         } else {
             errorAlertMessage("No fue posible obtener las películas populares")
+        }
+    }
+    
+    func didGetGenresMovie(_ status: APIStatusType, _ response : ListMovieResponse?) {
+        print("Callback didGetGenresMovie")
+        print("code    : \(status)")
+        
+        activityIndicator.stopAnimating()
+        if status == .success {
+            successfulAlertMessage("Carga OK de List Películas")
+            
+            response?.genres.forEach { genresData in
+                genresList.append(Genres(id: genresData.id, name: genresData.name))
+            }
+            print("Cantidad de géneros de películas: \(genresList.count)")
+        } else {
+            errorAlertMessage("No fue posible obtener el list de películas")
         }
     }
     

@@ -11,11 +11,11 @@ struct Genres: Hashable {
     
     var id: Int
     var name: String
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
     }
-    
+
     static func ==(lhs: Genres, rhs: Genres) -> Bool {
         return lhs.id == rhs.id
     }

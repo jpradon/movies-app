@@ -8,9 +8,6 @@
 import UIKit
 
 class DetailMovieViewController: BaseViewController {
-
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +15,6 @@ class DetailMovieViewController: BaseViewController {
         // Do any additional setup after loading the view.
     }
     
-
     /*
     // MARK: - Navigation
 

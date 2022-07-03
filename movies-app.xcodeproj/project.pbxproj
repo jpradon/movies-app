@@ -168,12 +168,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 86CCAD29286CDAF000429DC8 /* Build configuration list for PBXNativeTarget "movies-app" */;
 			buildPhases = (
+				86BC6DAE2871431300265A4A /* Run Swiftlint */,
 				A34876A6A222B2698F5E3407 /* [CP] Check Pods Manifest.lock */,
 				86CCAD11286CDAEA00429DC8 /* Sources */,
 				86CCAD12286CDAEA00429DC8 /* Frameworks */,
 				86CCAD13286CDAEA00429DC8 /* Resources */,
 				2198D385518EA0F275580EEC /* [CP] Embed Pods Frameworks */,
-				86BC6DAE2871431300265A4A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -248,7 +248,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-movies-app/Pods-movies-app-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		86BC6DAE2871431300265A4A /* ShellScript */ = {
+		86BC6DAE2871431300265A4A /* Run Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -257,13 +257,14 @@
 			);
 			inputPaths = (
 			);
+			name = "Run Swiftlint";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		A34876A6A222B2698F5E3407 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

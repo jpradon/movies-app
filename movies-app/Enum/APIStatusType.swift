@@ -8,13 +8,13 @@
 import Foundation
 
 enum APIStatusType {
-    
+
     case success
     case unsuccessfully
     case error
-    case api_call_error
-    case no_data
-    case decoding_error
-    case error_processing_content
-    
+    case apiCallError
+    case noData
+    case decodingError
+    case errorProcessingContent
+
 }

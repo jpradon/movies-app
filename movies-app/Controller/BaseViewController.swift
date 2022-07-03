@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIImageView {
-    
+
     func load(url: URL) {
         DispatchQueue.global().async { [weak self] in
             if let data = try? Data(contentsOf: url) {
@@ -24,7 +24,7 @@ extension UIImageView {
 
 extension UIImage {
 
-    class func createImageWithLabelOverlay(label: UILabel,imageSize: CGSize, image: UIImage) -> UIImage {
+    class func createImageWithLabelOverlay(label: UILabel, imageSize: CGSize, image: UIImage) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(CGSize(width: imageSize.width, height: imageSize.height), false, 2.0)
         let currentView = UIView.init(frame: CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height))
         let currentImage = UIImageView.init(image: image)
@@ -36,11 +36,9 @@ extension UIImage {
         UIGraphicsEndImageContext()
         return img!
     }
-
 }
 
 class BaseViewController: UIViewController {
-    
     var activityIndicator: UIActivityIndicatorView!
 
     override func viewDidLoad() {
@@ -54,20 +52,20 @@ class BaseViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
-    func successfulAlertMessage(_ mensaje: String, complete : @escaping () -> ()) {
+
+    func successfulAlertMessage(_ mensaje: String, complete : @escaping () -> () ) {
         // create the alert
         let alert = UIAlertController(title: "Éxito", message: mensaje, preferredStyle: .alert)
         // add an action (button)
         alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertAction.Style.default, handler: {
-            (action: UIAlertAction!) in
+            (_: UIAlertAction!) in
             complete()
             return
         }))
         // show the alert
         self.present(alert, animated: true, completion: nil)
     }
-    
+
     func successfulAlertMessage(_ mensaje: String) {
         // create the alert
         let alert = UIAlertController(title: "Éxito", message: mensaje, preferredStyle: .alert)
@@ -76,7 +74,7 @@ class BaseViewController: UIViewController {
         // show the alert
         self.present(alert, animated: true, completion: nil)
     }
-    
+
     func errorAlertMessage(_ mensaje: String) {
         // create the alert
         let alert = UIAlertController(title: "Error", message: mensaje, preferredStyle: .alert)
@@ -85,7 +83,7 @@ class BaseViewController: UIViewController {
         // show the alert
         self.present(alert, animated: true, completion: nil)
     }
-    
+
     func getUIColor(hex: String, alpha: Double = 1.0) -> UIColor? {
         var cleanString = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
 
@@ -103,27 +101,5 @@ class BaseViewController: UIViewController {
             blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
             alpha: CGFloat(1.0)
         )
-    }
-    
-    func textToImage(drawText text: NSString, inImage image: UIImage, atPoint point: CGPoint, letra: Int) -> UIImage {
-      
-        let scale = UIScreen.main.scale
-        UIGraphicsBeginImageContextWithOptions(image.size, false, scale)
-
-        image.draw(in: CGRect(origin: CGPoint.zero, size: image.size))
-
-        let rect = CGRect(origin: point, size: image.size)
-
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = .center
-
-        let attrs = [NSAttributedString.Key.font: UIFont(name: "Helvetica Bold", size: CGFloat(letra))!,NSAttributedString.Key.foregroundColor : UIColor.white , NSAttributedString.Key.paragraphStyle: paragraphStyle]
-
-        text.draw(with: rect, options: .usesLineFragmentOrigin, attributes: attrs, context: nil)
-
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-
-        return newImage!
     }
 }

@@ -1,5 +1,5 @@
 //
-//  Category.swift
+//  Genres.swift
 //  movies-app
 //
 //  Created by training on 02-07-22.

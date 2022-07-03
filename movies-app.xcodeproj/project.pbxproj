@@ -16,6 +16,7 @@
 		86BC6DA7286E60CA00265A4A /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BC6DA6286E60CA00265A4A /* Movie.swift */; };
 		86BC6DA9286F80F900265A4A /* ListMovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BC6DA8286F80F800265A4A /* ListMovieResponse.swift */; };
 		86BC6DAB2870A1DD00265A4A /* Genres.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BC6DAA2870A1DC00265A4A /* Genres.swift */; };
+		86BC6DAD2871406500265A4A /* DetailMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BC6DAC2871406500265A4A /* DetailMovieViewController.swift */; };
 		86CCAD19286CDAEA00429DC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CCAD18286CDAEA00429DC8 /* AppDelegate.swift */; };
 		86CCAD1B286CDAEA00429DC8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CCAD1A286CDAEA00429DC8 /* SceneDelegate.swift */; };
 		86CCAD1D286CDAEA00429DC8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CCAD1C286CDAEA00429DC8 /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 		86BC6DA6286E60CA00265A4A /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		86BC6DA8286F80F800265A4A /* ListMovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMovieResponse.swift; sourceTree = "<group>"; };
 		86BC6DAA2870A1DC00265A4A /* Genres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genres.swift; sourceTree = "<group>"; };
+		86BC6DAC2871406500265A4A /* DetailMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovieViewController.swift; sourceTree = "<group>"; };
 		86CCAD15286CDAEA00429DC8 /* movies-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "movies-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86CCAD18286CDAEA00429DC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86CCAD1A286CDAEA00429DC8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			children = (
 				8623CF4C286D2F8600A9D16F /* MovieViewController.swift */,
 				8623CF4E286D4BA000A9D16F /* BaseViewController.swift */,
+				86BC6DAC2871406500265A4A /* DetailMovieViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 				86CCAD12286CDAEA00429DC8 /* Frameworks */,
 				86CCAD13286CDAEA00429DC8 /* Resources */,
 				2198D385518EA0F275580EEC /* [CP] Embed Pods Frameworks */,
+				86BC6DAE2871431300265A4A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -244,6 +248,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-movies-app/Pods-movies-app-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		86BC6DAE2871431300265A4A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		A34876A6A222B2698F5E3407 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -277,6 +298,7 @@
 				86CCAD1D286CDAEA00429DC8 /* ViewController.swift in Sources */,
 				8623CF4D286D2F8600A9D16F /* MovieViewController.swift in Sources */,
 				8623CF46286D212C00A9D16F /* TheMovieAPIRest.swift in Sources */,
+				86BC6DAD2871406500265A4A /* DetailMovieViewController.swift in Sources */,
 				86CCAD19286CDAEA00429DC8 /* AppDelegate.swift in Sources */,
 				86CCAD1B286CDAEA00429DC8 /* SceneDelegate.swift in Sources */,
 				8623CF4F286D4BA000A9D16F /* BaseViewController.swift in Sources */,

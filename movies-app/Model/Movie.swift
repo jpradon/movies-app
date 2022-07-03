@@ -1,5 +1,5 @@
 //
-//  Staff.swift
+//  Movie.swift
 //  movies-app
 //
 //  Created by training on 30-06-22.
@@ -12,6 +12,9 @@ struct Movie: Hashable {
     var name: String
     var image: String
     var favorite: Bool
+    var releaseDate: String
+    var synopsis: String
+    var genreIDS: [Int] = []
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)

@@ -43,10 +43,11 @@ class MovieViewController: BaseViewController, UICollectionViewDelegate, UIColle
             successfulAlertMessage("Carga OK de Películas Populares")
             
             response?.results.forEach { movieData in
-                movieList.append(Movie(name: movieData.title, image: "https://image.tmdb.org/t/p/w500/\(movieData.posterPath)" , favorite: false))
+                movieList.append(Movie(name: movieData.title, image: "https://image.tmdb.org/t/p/w500/\(movieData.posterPath)", favorite: false, releaseDate: movieData.releaseDate, synopsis: movieData.overview, genreIDS: movieData.genreIDS))
             }
             movieCollectionView.reloadData()
             print("Cantidad de películas: \(movieList.count)")
+            print("Películas: \(movieList)")
         } else {
             errorAlertMessage("No fue posible obtener las películas populares")
         }
@@ -90,19 +91,11 @@ class MovieViewController: BaseViewController, UICollectionViewDelegate, UIColle
         api.popularMovie(page: 1, complete: didGetPopularMovie)
     }
     
-    
-    
-    
-    
-    
-    /*
+   
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
-
 }

@@ -138,10 +138,10 @@
             </objects>
             <point key="canvasLocation" x="1902.8985507246377" y="-309.375"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail Movie View Controller-->
         <scene sceneID="KO8-T5-UoJ">
             <objects>
-                <viewController id="ODX-eQ-3NW" sceneMemberID="viewController">
+                <viewController id="ODX-eQ-3NW" customClass="DetailMovieViewController" customModule="movies_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WNA-RQ-IWT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
